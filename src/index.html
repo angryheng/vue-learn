@@ -7,18 +7,36 @@
     <script src="lib/vue.js"></script>
   </head>
   <body>
+    <!-- view -->
     <div id="root">
       <h1>Hello, {{ message }}</h1>
+      <!-- 单向数据绑定 -->
+      <input type="text" name="username" v-bind:value="username">
+      <!-- 双向数据绑定 -->
+      <input type="text" name="username" v-model="username">
     </div>
+    <!-- view -->
   </body>
   <script>
     Vue.config.productionTip = false;
 
+    // view-model
     const vm = new Vue({
-      el: '#root',
-      data: {
-        message: 'Vue2!'
+      // el: '#root',
+      // data: {
+      //  message: 'Vue2!',
+      //  username: 'Test'
+      // }
+      // model
+      data: () => {
+        return {
+          message: 'Vue2!',
+          username: 'Test'
+        }
       }
-    })
+    });
+
+    vm.$mount('#root');
+
   </script>
 </html>
